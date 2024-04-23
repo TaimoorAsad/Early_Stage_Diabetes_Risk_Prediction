@@ -73,8 +73,11 @@ def predict():
         scaled_input = scaler.transform(input_data)
 
         prediction = model.predict(scaled_input)
-
-        messagebox.showinfo("Prediction", f"The predicted class is: {prediction[0]}")
+        if(prediction[0] == 1):
+            messagebox.showinfo("Prediction", "According to the predication you are diabetic")
+        else:
+            messagebox.showinfo("Prediction", "According to the predication you are not diabetic")
+        
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
